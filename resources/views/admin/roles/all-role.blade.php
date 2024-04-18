@@ -6,7 +6,9 @@
         <div class="d-flex justify-content-between">
           <h4 class="card-title">Role List</h4>
             <div>
+              @can('create-role')
               <a class="nav-link btn btn-sm btn-success  " href="{{ route('create-role') }}">+ Create  Role</a>
+              @endcan
             </div>
         </div>
       <div class="table-responsive">
@@ -27,8 +29,12 @@
                 <td> {{ $role->name }}</td>
                 <td> {{ $role->label }}</td>
                 <td>
-                 <a href="{{ route('edit-role',$role->id ) }}" class="btn btn-sm btn-info">Edit</a>
-                 <button type="submit" class="btn btn-sm btn-danger deletebtn" ">Delete</button>
+                  @can('edit-role')
+                  <a href="{{ route('edit-role',$role->id ) }}" class="btn btn-sm btn-info">Edit</a>
+                  @endcan
+                  @can('delete-role')
+                  <button type="submit" class="btn btn-sm btn-danger deletebtn" ">Delete</button>
+                  @endcan
                 </td>
             </tr>
             @endforeach

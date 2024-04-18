@@ -75,7 +75,7 @@
         </a>
       </li>
       @endcan
-     
+      @can('show-permissions')
       <li class="nav-item menu-items">
         <a class="nav-link" href="{{ route('all-permission') }}">
           <span class="menu-icon">
@@ -84,6 +84,8 @@
           <span class="menu-title">Permissions</span>
         </a>
       </li>
+      @endcan
+      @can('show-roles')
       <li class="nav-item menu-items">
         <a class="nav-link" href="{{ route('all-roles') }}">
           <span class="menu-icon">
@@ -92,6 +94,16 @@
           <span class="menu-title">Roles</span>
         </a>
       </li>
+      @endcan
+      <li class="nav-item menu-items">
+        <a class="nav-link" href="{{ route('all-products') }}">
+          <span class="menu-icon">
+            <i class="mdi mdi-playlist-play"></i>
+          </span>
+          <span class="menu-title">Products</span>
+        </a>
+      </li>
+      @can('show-categories')
       <li class="nav-item menu-items">
         <a class="nav-link" href="{{ route('all-categories') }}">
           <span class="menu-icon">
@@ -100,6 +112,7 @@
           <span class="menu-title">Categories</span>
         </a>
       </li>
+      @endcan
       <li class="nav-item menu-items">
         <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
           <span class="menu-icon">

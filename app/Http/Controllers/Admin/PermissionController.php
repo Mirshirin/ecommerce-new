@@ -11,6 +11,13 @@ use App\Models\Permission;
 
 class PermissionController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('can:show-permissions')->only(['allPermission']);
+        $this->middleware('can:create-permission')->only(['createPermission','storePermission']); 
+        $this->middleware('can:edit-permission')->only(['editPermission','updatePermission']);  
+        $this->middleware('can:delete-permission')->only(['deletePermission']);
+    }
     public function allPermission(){
 
         $permissions = Permission::all();

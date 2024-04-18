@@ -6,7 +6,9 @@
         <div class="d-flex justify-content-between">
           <h4 class="card-title">Category List</h4>
             <div>
+              @can('create-category')
               <a class="nav-link btn btn-sm btn-success  " href="{{ route('create-category') }}">+ Create  Category</a>
+              @endcan
             </div>
         </div>
       <div class="table-responsive">
@@ -25,8 +27,12 @@
                 <td> {{  $category->id }} </td>
                 <td> {{ $category->name }}</td>
                 <td>
-                 <a href="{{ route('edit-category',$category->id ) }}" class="btn btn-sm btn-info">Edit</a>
-                 <button type="submit" class="btn btn-sm btn-danger deletebtn" ">Delete</button>
+                  @can('edit-category')
+                  <a href="{{ route('edit-category',$category->id ) }}" class="btn btn-sm btn-info">Edit</a>
+                  @endcan
+                  @can('delete-category')
+                  <button type="submit" class="btn btn-sm btn-danger deletebtn" ">Delete</button>
+                  @endcan
                 </td>
             </tr>
             @endforeach

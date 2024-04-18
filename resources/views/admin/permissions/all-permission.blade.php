@@ -6,7 +6,9 @@
         <div class="d-flex justify-content-between">
           <h4 class="card-title">Permission List</h4>
             <div>
+              @can('create-permission')
               <a class="nav-link btn btn-sm btn-success  " href="{{ route('create-permission') }}">+ Create  permission</a>
+              @endcan
             </div>
         </div>
       <div class="table-responsive">
@@ -27,8 +29,12 @@
                 <td> {{ $permission->name }}</td>
                 <td> {{ $permission->label }}</td>
                 <td>
-                 <a href="{{ route('edit-permission',$permission->id ) }}" class="btn btn-sm btn-info">Edit</a>
-                 <button type="submit" class="btn btn-sm btn-danger deletebtn" ">Delete</button>
+                  @can('edit-permission')
+                  <a href="{{ route('edit-permission',$permission->id ) }}" class="btn btn-sm btn-info">Edit</a>
+                  @endcan
+                  @can('delete-permission')
+                  <button type="submit" class="btn btn-sm btn-danger deletebtn" ">Delete</button>
+                  @endcan
                 </td>
             </tr>
             @endforeach

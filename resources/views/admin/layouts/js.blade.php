@@ -117,6 +117,19 @@
         }
       });
     </script>
+     <script>
+      $('#frmproduct').validate({
+        rules:{
+          title:"required",
+          description:"required",
+          // image :"required|mimes:png,jpg,jpeg|max:2048",
+          discount_price:"required",
+          quantity:"required",
+          price:"required",
+       
+        }
+      });
+    </script>
     <script>
       $(document).ready(function(){
               $.ajaxSetup({
@@ -168,7 +181,6 @@
       });
 
     </script>
-
     <script>
       $(document).ready(function(){
               $.ajaxSetup({
@@ -220,7 +232,52 @@
       });
 
     </script>
-    
+    <script>
+      $(document).ready(function(){
+              $.ajaxSetup({
+              headers: {
+                  'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+              }
+              });
+        $('.deletebtn').click(function (e) 
+        { 
+          e.preventDefault();
+          var delete_id = $(this).closest("tr").find('.delete_val_id').val();
+        
+            swal({
+                  title: "Are you sure?",
+                  text: "Once deleted, you will not be able to recover this imaginary file!",
+                  icon: "warning",
+                  buttons: true,
+                  dangerMode: true,
+            })
+            .then((willDelete) => 
+            {
+              var data = {
+                "_token":$('input[name=_token]').val(),
+                "id":delete_id
+              }
+            $.ajax({
+                type:"DELETE",
+                url:'/admin/delete-product/' + delete_id,
+                data:data,
+                success:function(response)
+                {
+                  swal(response.status , {
+                  icon: "success",
+                })
+              
+                .then((result)=>{
+                  location.reload();
+                })
+              }       
+              });
+            });
+        });
+
+      });
+
+    </script>
     <script src="{{ asset('admin/assets/vendors/js/vendor.bundle.base.js') }}"></script>
     <!-- endinject -->
     <!-- Plugin js for this page -->

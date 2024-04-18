@@ -1,6 +1,7 @@
 <?php
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\PermissionController;
+use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\AdminController;
@@ -39,3 +40,10 @@ Route::delete('/delete-role/{id}',[RoleController::class,'deleteRole'])->name('d
 //permission and role user 
 Route::get('/users/{id}/permissions',[UserPermissionController::class,'createUserPermission'])->name('users.permissions')->middleware('can:staff-user-permission');
 Route::post('/users/{id}/permissions',[UserPermissionController::class,'storeUserPermission'])->name('users.permissions.store')->middleware('can:staff-user-permission');
+//products mangement
+Route::get('/all-products',[ProductController::class,'allProduct'])->name('all-products');
+Route::get('/create-product',[ProductController::class,'createProduct'])->name('create-product');
+Route::get('/edit-product/{id}',[ProductController::class,'editProduct'])->name('edit-product');
+Route::post('/store-product',[ProductController::class,'storeProduct'])->name('store-product');
+Route::put('/update-product/{id}',[ProductController::class,'updateProduct'])->name('update-product');
+Route::delete('/delete-product/{id}',[ProductController::class,'deleteProduct'])->name('delete-product');

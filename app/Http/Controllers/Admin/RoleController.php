@@ -9,6 +9,13 @@ use Illuminate\Http\Request;
 
 class RoleController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('can:show-roles')->only(['allRole']);
+        $this->middleware('can:create-role')->only(['createRole','storeRole']); 
+        $this->middleware('can:edit-role')->only(['editRole','updateRole']);  
+        $this->middleware('can:delete-role')->only(['deleteRole']);
+    }
     public function allRole(){
         $roles=Role::all();
         return view('admin.roles.all-role')->with('roles',$roles);

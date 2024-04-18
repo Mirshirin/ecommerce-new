@@ -29,7 +29,7 @@
             <label class="sr-only" for="inlineFormInputName2">Role label</label>
             <input type="text" class="form-control mb-2 mr-sm-2" name="label"  value="{{ old('name',$role->label) }}"  placeholder="Enter role label" style= "background-color:white !important; color: black;">
             <br>
-            <label class="sr-only" for="inlineFormInputName2">Permisssion label</label>
+            <label class="sr-only" for="inlineFormInputName2">Permission label</label>
             <select name="permissions[]" id="permissions" class="form-control" style= "background-color:white !important; color: black;" multiple >
                 @foreach ($permissions as $permission) 
                 <option value="{{ $permission->id }} " {{ in_array($permission->id,$role->permissions->pluck('id')->toArray()) ? 'selected' : '' }} >{{ $permission->name }} - {{ $permission->label }} </option> 

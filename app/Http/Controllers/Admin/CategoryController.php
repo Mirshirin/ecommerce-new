@@ -9,7 +9,13 @@ use App\Models\Category;
 
 class CategoryController extends Controller
 {
-    
+    public function __construct()
+    {
+        $this->middleware('can:show-categories')->only(['allCategories']);
+        $this->middleware('can:create-category')->only(['createCategory','storeCategory']); 
+        $this->middleware('can:edit-category')->only(['editCategory','updateCategory']);  
+        $this->middleware('can:delete-category')->only(['deleteCategory']);
+    }
     public function allCategories(){
 
         $categories = Category::query()
