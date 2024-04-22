@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('image');
             $table->integer('quantity');
             $table->float('price');
-            $table->float('discount_price');
+            $table->float('discount_price')->nullable();
             $table->unsignedBigInteger('category_id');         
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
           

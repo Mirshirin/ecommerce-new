@@ -103,6 +103,14 @@
           <span class="menu-title">Products</span>
         </a>
       </li>
+      <li class="nav-item menu-items">
+        <a class="nav-link" href="{{ route('all-orders') }}">
+          <span class="menu-icon">
+            <i class="mdi mdi-playlist-play"></i>
+          </span>
+          <span class="menu-title">Orders</span>
+        </a>
+      </li>
       @can('show-categories')
       <li class="nav-item menu-items">
         <a class="nav-link" href="{{ route('all-categories') }}">

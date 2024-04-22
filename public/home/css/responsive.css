@@ -1,3 +1,4 @@
+
 @media (max-width: 1300px) {}
 
 @media (max-width: 1120px) {}
@@ -42,8 +43,9 @@
   .arrival_section .arrival_bg_box img {
     -o-object-position: top right;
     object-position: top right;
-  }
 
+  }
+  .arrival_bg_box
   .client_section .carousel-control-prev {
     left: 5%;
   }

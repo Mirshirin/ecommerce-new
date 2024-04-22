@@ -79,6 +79,12 @@ class User extends Authenticatable
       
        return !! $roles->intersect($this->roles)->all();
     }
+
+    public function carts(){
+        return $this->hasMany(Cart::class);
+    }
+
+
 }   
     
 

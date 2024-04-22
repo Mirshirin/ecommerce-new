@@ -47,3 +47,8 @@ Route::get('/edit-product/{id}',[ProductController::class,'editProduct'])->name(
 Route::post('/store-product',[ProductController::class,'storeProduct'])->name('store-product');
 Route::put('/update-product/{id}',[ProductController::class,'updateProduct'])->name('update-product');
 Route::delete('/delete-product/{id}',[ProductController::class,'deleteProduct'])->name('delete-product');
+//all-orders
+Route::get('/all-orders',[AdminController::class,'allOrders'])->name('all-orders');
+Route::get('/delivered/{id}',[AdminController::class,'delivered'])->name('delivered');
+
+Route::get('/print-pdf/{id}',[AdminController::class,'printPdf'])->name('print-pdf');

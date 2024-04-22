@@ -1,4 +1,5 @@
-
+@extends('home.master')
+@section('content')
 <section class="product_section layout_padding">
     <div class="container">
        <div class="heading_container heading_center">
@@ -62,3 +63,4 @@
        </div>
     </div>
  </section>
+@endsection    

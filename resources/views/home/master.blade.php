@@ -23,35 +23,28 @@
       @vite(['resources/css/app.css', 'resources/js/app.js'])
 
    </head>
-   <body>
-      <div class="hero_area">
-         <!-- header section strats -->
-        @include('home.layouts.header');
-         <!-- end header section -->
-         <!-- slider section -->
-         @include('home.layouts.sidebar');
-         <!-- end slider section -->
-      </div>
-      <!-- why section -->
-      @include('home.why')
-      <!-- end why section -->
-      @include('home.arrival')
-      <!-- end arrival section -->
-      
-      <!-- product section -->
-      @include('home.product')
-      <!-- end product section -->
-
-      <!-- subscribe section -->
-      @include('home.subscribe')
-      <!-- end subscribe section -->
-      <!-- client section -->
-      @include('home.client')
-      <!-- end client section -->
+   <body>   
+      <!-- header section strats -->
+      @include('home.layouts.header');
+      <!-- end header section -->
+      <!-- slider section -->
+      @yield('content')
       <!-- footer start -->
       @include('home.layouts.footer');
       <!-- footer end -->
       <!-- jQery -->
+         <!--    sweetalert code -->
+    <script src="{{ asset('admin/assets/js/sweetalert.js') }}"></script>
+    <script>
+        @if (session('message'))
+        swal({
+            title: "{{  session('message') }} ",
+            icon: "success",
+            button: "ok",
+        });
+
+        @endif
+    </script>
       <script src="{{ asset('home/js/jquery-3.4.1.min.js') }}"></script>
       <!-- popper js -->
       <script src="{{ asset('home/js/popper.min.js') }}"></script>
