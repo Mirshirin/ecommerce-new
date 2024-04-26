@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Auth\LoginRequest;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Routing\Route;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
 
@@ -28,10 +30,11 @@ class AuthenticatedSessionController extends Controller
         
         $request->authenticate();
         $request->session()->regenerate();
-        dd($request->user()->isSuperUser()) ;
+       
  // Check if the authenticated user is a superuser
         if (($request->user()->isSuperUser() || $request->user()->isStaffUser())) {
-        return redirect()->intended('/dashboard');
+            
+        return redirect()->intended('../admin/dashboard');
         }else{
             return redirect()->intended(RouteServiceProvider::HOME);
 

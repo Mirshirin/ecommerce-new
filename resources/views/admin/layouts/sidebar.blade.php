@@ -13,7 +13,9 @@
             </div>
             <div class="profile-name">
               <h5 class="mb-0 font-weight-normal">{{ Auth::user()->name }}</h5>
+              @if(Auth::user()->isSuperUser()) 
               <span>Gold Member</span>
+              @endif
             </div>
           </div>
           <a href="#" id="profile-dropdown" data-bs-toggle="dropdown"><i class="mdi mdi-dots-vertical"></i></a>
@@ -29,7 +31,7 @@
               </div>
             </a>
             <div class="dropdown-divider"></div>
-            <a href="#" class="dropdown-item preview-item">
+            <a href="" class="dropdown-item preview-item">
               <div class="preview-thumbnail">
                 <div class="preview-icon bg-dark rounded-circle">
                   <i class="mdi mdi-onepassword  text-info"></i>

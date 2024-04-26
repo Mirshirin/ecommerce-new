@@ -145,14 +145,14 @@
           <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="profileDropdown">                    
        
               <div class="preview-item-content">
-                <form method="POST" action="{{ route('logout') }}">
+                <form method="POST" action="{{ route('logout') }}" style="  display: flex;  align-items: center;color:white">
                   @csrf
                   <x-dropdown-link :href="route('logout')"
                         onclick="event.preventDefault();
                                     this.closest('form').submit();">
-                                    <div class="preview-thumbnail">
-                                      <div class="preview-icon bg-dark rounded-circle">
-                                        <i class="mdi mdi-logout text-danger">   {{ __('Log Out') }}</i>
+                                    <div class="preview-thumbnail" >
+                                      <div class="preview-icon bg-dark rounded-circle" >
+                                        <i  class="mdi mdi-logout text-success">   {{ __('Log Out') }}</i>
                                       
                                       </div>
                                     </div>
