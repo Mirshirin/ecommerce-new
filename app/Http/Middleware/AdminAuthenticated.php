@@ -12,12 +12,16 @@ class AdminAuthenticated
         
     public function handle($request, Closure $next)
     {
-
+        dd($request->user());
         if ($request->user() && ($request->user()->isSuperUser() || $request->user()->isStaffUser())) {
-            return $next($request);
+            //return $next($request);
+            return redirect()->route('admin-dashboard');
+         
+        }else{
+            return redirect('/');
+
         }
 
-        return redirect('/');
     }
 
 

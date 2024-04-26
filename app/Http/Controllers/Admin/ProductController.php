@@ -8,9 +8,12 @@ use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use Illuminate\Http\UploadedFile;
-
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
+use App\Traits\SharedFunctionalityTrait;
 class ProductController extends Controller
 {
+    use SharedFunctionalityTrait;
     public function allProduct(){
         $products=Product::all();
         return view('admin.products.all-products')->with('products',$products);

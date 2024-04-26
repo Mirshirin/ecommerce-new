@@ -1,14 +1,18 @@
 @component('admin.layouts.content')
-
   <div class="row">
     <div class="col-xl-3 col-sm-6 grid-margin stretch-card">
       <div class="card">
         <div class="card-body">
           <div class="row">
             <div class="col-9">
-              <div class="d-flex align-items-center align-self-start">
-                <h3 class="mb-0">$12.34</h3>
-                <p class="text-success ms-2 mb-0 font-weight-medium">+3.5%</p>
+              <div class="d-flex align-items-center align-self-start"> 
+                
+                @if(isset($metrics['total_price']))
+                <h3 class="mb-0">${{ $metrics['total_price'] }}</h3>
+                @endif
+            
+            
+
               </div>
             </div>
             <div class="col-3">
@@ -17,18 +21,22 @@
               </div>
             </div>
           </div>
-          <h6 class="text-muted font-weight-normal">Potential growth</h6>
+          <h6 class="text-muted font-weight-normal">Total order amount for the user</h6>
         </div>
       </div>
     </div>
+    @if($user->isStaffUser()) 
+ 
     <div class="col-xl-3 col-sm-6 grid-margin stretch-card">
       <div class="card">
         <div class="card-body">
           <div class="row">
             <div class="col-9">
               <div class="d-flex align-items-center align-self-start">
-                <h3 class="mb-0">$17.34</h3>
-                <p class="text-success ms-2 mb-0 font-weight-medium">+11%</p>
+                @if(isset($metrics['highest_price']))
+                <h3 class="mb-0">${{ $metrics['highest_price'] }}</h3>
+                @endif
+                            
               </div>
             </div>
             <div class="col-3">
@@ -37,18 +45,21 @@
               </div>
             </div>
           </div>
-          <h6 class="text-muted font-weight-normal">Revenue current</h6>
+          <h6 class="text-muted font-weight-normal">The highest order amount of user</h6>
         </div>
       </div>
     </div>
+    @endif
     <div class="col-xl-3 col-sm-6 grid-margin stretch-card">
       <div class="card">
         <div class="card-body">
           <div class="row">
             <div class="col-9">
               <div class="d-flex align-items-center align-self-start">
-                <h3 class="mb-0">$12.34</h3>
-                <p class="text-danger ms-2 mb-0 font-weight-medium">-2.4%</p>
+                @if(isset($metrics['revenue_Sales']))
+                <h3 class="mb-0">${{ $metrics['revenue_Sales'] }}</h3>
+                @endif
+                        
               </div>
             </div>
             <div class="col-3">
@@ -57,7 +68,7 @@
               </div>
             </div>
           </div>
-          <h6 class="text-muted font-weight-normal">Daily Income</h6>
+          <h6 class="text-muted font-weight-normal">Revenue from sales</h6>
         </div>
       </div>
     </div>
@@ -67,8 +78,7 @@
           <div class="row">
             <div class="col-9">
               <div class="d-flex align-items-center align-self-start">
-                <h3 class="mb-0">$31.53</h3>
-                <p class="text-success ms-2 mb-0 font-weight-medium">+3.5%</p>
+                <h3 class="mb-0">{{ $metrics['productSoldCount'] }}</h3>
               </div>
             </div>
             <div class="col-3">
@@ -77,7 +87,7 @@
               </div>
             </div>
           </div>
-          <h6 class="text-muted font-weight-normal">Expense current</h6>
+          <h6 class="text-muted font-weight-normal">The count of products sold</h6>
         </div>
       </div>
     </div>

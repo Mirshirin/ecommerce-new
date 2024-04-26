@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\RoleController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\SearchController;
 use App\Http\Controllers\Admin\UserPermissionController;
 use Illuminate\Support\Facades\Route;
 
@@ -47,6 +48,8 @@ Route::get('/edit-product/{id}',[ProductController::class,'editProduct'])->name(
 Route::post('/store-product',[ProductController::class,'storeProduct'])->name('store-product');
 Route::put('/update-product/{id}',[ProductController::class,'updateProduct'])->name('update-product');
 Route::delete('/delete-product/{id}',[ProductController::class,'deleteProduct'])->name('delete-product');
+Route::get('/search',[SearchController::class,'search'])->name('search');
+
 //all-orders
 Route::get('/all-orders',[AdminController::class,'allOrders'])->name('all-orders');
 Route::get('/delivered/{id}',[AdminController::class,'delivered'])->name('delivered');

@@ -25,11 +25,18 @@ class AuthenticatedSessionController extends Controller
      */
     public function store(LoginRequest $request): RedirectResponse
     {
+        
         $request->authenticate();
-
         $request->session()->regenerate();
+        dd($request->user()->isSuperUser()) ;
+ // Check if the authenticated user is a superuser
+        if (($request->user()->isSuperUser() || $request->user()->isStaffUser())) {
+        return redirect()->intended('/dashboard');
+        }else{
+            return redirect()->intended(RouteServiceProvider::HOME);
 
-        return redirect()->intended(RouteServiceProvider::HOME);
+        }
+
     }
 
     /**
