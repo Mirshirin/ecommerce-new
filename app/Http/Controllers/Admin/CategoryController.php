@@ -38,7 +38,7 @@ class CategoryController extends Controller
             ]);
         $data['name'] = $request->name;
         $category = Category::create($data);
-      return to_route('all-categories' , $category)->with('message','category was created');
+      return to_route('all-categories' , $category)->with('message','Category was created');
     }
   
     public function updateCategory(Request $request, $id)
@@ -52,7 +52,7 @@ class CategoryController extends Controller
         $category ->update($data);
 //        session::flash('statuscose', 'success');
 
-        return to_route('all-categories', $category)->with('message', 'Note was updated');
+        return to_route('all-categories', $category)->with('message', 'Category was updated');
 
     }
     public function editCategory($id)

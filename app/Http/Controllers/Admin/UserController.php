@@ -20,7 +20,7 @@ class UserController extends Controller
     }
     public function allUsers(){
         
-        $users = User::all();    
+        $users = User::paginate(7);    
          
        return view('admin.users.all-users',compact('users'));
     }
@@ -76,6 +76,27 @@ class UserController extends Controller
         }
         return to_route('all-users')->with('message','user was updated.');
     }
+    public function updatePassword(Request $request)
+    {
+        $user=auth()->user()->id;
+      
+      
+            if( ($request->new_password) == ($request->password_confirmation)  ){
+                
+               
+                $data['password'] = $request->new_password;
+            }       
+            $user ->update($data);  
+       return redirect()->route('admin.change-password');
+      
+    }
+
+    public function changePassword()
+        {
+            $id=auth()->user()->id;
+            $user=User::find($id);
+        return view('admin.users.change-password',compact('user'));
+    }
     public function deleteUser($id)
     {
         $user=User::find($id);
@@ -83,4 +104,6 @@ class UserController extends Controller
         $user->delete();
         return response()->json([ 'status' => 'User deleted successfully' ]);
     }
+   
+   
 }

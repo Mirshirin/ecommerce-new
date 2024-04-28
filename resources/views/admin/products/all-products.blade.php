@@ -1,4 +1,22 @@
 @component('admin.layouts.content')
+<style>
+  
+  .note:hover {
+    background-color: #919191;
+    box-shadow: 2px 4px 10px rgba(0, 0, 0, 0.3);
+
+  }
+
+  .note .note-body {
+    outline: 0;
+    font-family: 'Caveat', cursive;
+    font-size: 24px;
+    padding: 10px 16px 16px;
+  }
+  
+
+
+</style>
 <div class="col-lg-12 grid-margin stretch-card">
   <div class="card">
 
@@ -52,7 +70,15 @@
           </tbody>
         </table>
       </div>
+     
+    
+    </div>
+    <div class="note">
+    <div class="note-body">
+      {{ $products->links() }}
     </div>
   </div>
 </div>
+  </div>
+  
 @endcomponent

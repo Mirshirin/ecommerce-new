@@ -42,6 +42,12 @@
         </table>
       </div>
     </div>
+    <div class="note">
+      <div class="note-body">
+        {{ $permissions->links() }}
+      </div>
+    </div>
   </div>
+  
 </div>
 @endcomponent

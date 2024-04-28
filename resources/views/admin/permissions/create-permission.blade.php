@@ -8,9 +8,9 @@
    
     <form id="frm" class="form-inline" method="POST" action="{{ route('store-permission') }}">
         @csrf
-      <label class="sr-only" for="inlineFormInputName2">Permission Name</label>
+      <label class="sr-only-visible" for="inlineFormInputName2">Permission Name</label>
       <input type="text" class="form-control mb-2 mr-sm-2" name="name"  placeholder="Enter permission name" style= "background-color:white !important; color: black;" >
-      <label class="sr-only" for="inlineFormInputName2">Permission Label</label>
+      <label class="sr-only-visible" for="inlineFormInputName2">Permission Label</label>
       <input type="text" class="form-control mb-2 mr-sm-2" name="label"  placeholder="Enter permission label" style= "background-color:white !important; color: black;" >
 
       <br>

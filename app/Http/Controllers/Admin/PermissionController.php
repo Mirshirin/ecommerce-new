@@ -20,7 +20,7 @@ class PermissionController extends Controller
     }
     public function allPermission(){
 
-        $permissions = Permission::all();
+        $permissions = Permission::paginate(7);
         //dd($permissions);
         return view('admin.permissions.all-permission')->with('permissions',$permissions);
     

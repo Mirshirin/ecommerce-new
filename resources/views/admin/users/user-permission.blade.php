@@ -29,13 +29,13 @@
         <form id="frm" class="form-inline" method="POST" action="{{ route('users.permissions.store',$user->id) }}">
             @csrf            
                   
-            <label class="sr-only" for="inlineFormInputName2">Role List</label>
+            <label class="sr-only-visible" for="inlineFormInputName2">Role List</label>
             <select name="permissions[]" id="roles" class="form-control" style= "background-color:white !important; color: black;" multiple >
                 @foreach ($roles as $role) 
                 <option value="{{ $role->id }} " {{ in_array($role->id,$user->roles->pluck('id')->toArray()) ? 'selected' : '' }} >{{ $role->name }} - {{ $role->label }} </option> 
                 @endforeach                
             </select>
-            <label class="sr-only" for="inlineFormInputName2">Permisssion List</label>
+            <label class="sr-only-visible" for="inlineFormInputName2">Permisssion List</label>
             <select name="permissions[]" id="permissions" class="form-control" style= "background-color:white !important; color: black;" multiple >
                 @foreach ($permissions as $permission) 
                 <option value="{{ $permission->id }} " {{ in_array($permission->id,$user->permissions->pluck('id')->toArray()) ? 'selected' : '' }} >{{ $permission->name }} - {{ $permission->label }} </option> 

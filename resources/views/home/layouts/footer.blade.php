@@ -1,6 +1,6 @@
 
 <footer>
-    <div class="container">
+    <div class="container" id="about-the-page">
        <div class="row">
           <div class="col-md-4">
               <div class="full">
@@ -71,9 +71,9 @@
  </footer>
  
  <div class="cpy_">
-   <p class="mx-auto">© 2021 All Rights Reserved By <a href="https://html.design/">Free Html Templates</a><br>
+   <p class="mx-auto">© 2024 All Rights  <a href=""></a><br>
    
-      Distributed By <a href="https://themewagon.com/" target="_blank">ThemeWagon</a>
+      Distributed By <a href="" target="_blank">Product manager</a>
    
    </p>
 </div>

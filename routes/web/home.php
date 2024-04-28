@@ -47,7 +47,7 @@ Route::middleware('auth')->group(function () {
 });
 Route::get('/product-detail/{id}', [HomeController::class , 'productDetail'])->name('product-detail');
 Route::post('/add-cart/{id}', [HomeController::class , 'addToCart'])->name('add-cart');
-Route::get('/all-products',[HomeController::class,'allProduct'])->name('all-products');
+//Route::get('/all-products',[HomeController::class,'allProduct'])->name('all-products');
 Route::get('/show-carts',[HomeController::class,'showCarts'])->name('show-carts');
 Route::delete('/delete-carts/{id}',[HomeController::class,'deleteCarts'])->name('delete-carts');
 Route::get('/cash-order',[HomeController::class,'cashOrder'])->name('cash-order');

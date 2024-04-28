@@ -8,6 +8,9 @@ use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\SearchController;
 use App\Http\Controllers\Admin\UserPermissionController;
 use Illuminate\Support\Facades\Route;
+Route::get('/login', function () {
+    return redirect('/admin/dashboard');
+});
 
 Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('admin-dashboard');
 Route::get('/all-categories', [CategoryController::class, 'allCategories'])->name('all-categories');
@@ -18,11 +21,15 @@ Route::patch('/update-category/{id}', [CategoryController::class, 'updateCategor
 Route::delete('/delete-category/{id}',[CategoryController::class,'deleteCategory'])->name('delete-category');
 //user mangement
 Route::get('/all-users', [UserController::class, 'allUsers'])->name('all-users');
+Route::get('/change-password', [UserController::class, 'changePassword'])->name('change-password');
+Route::get('/update-password', [UserController::class, 'updatePassword'])->name('update-password');
+
 Route::get('/create-user', [UserController::class, 'createUser'])->name('create-user');
 Route::post('/store-user', [UserController::class, 'storeUser'])->name('store-user');
 Route::get('/edit-user/{id}', [UserController::class, 'editUser'])->name('edit-user');
 Route::patch('/update-user/{id}', [UserController::class, 'updateUser'])->name('update-user');
 Route::delete('/delete-user/{id}',[UserController::class,'deleteUser'])->name('delete-user');
+
 //permission management
 Route::get('/all-permission',[PermissionController::class,'allPermission'])->name('all-permission');
 Route::get('/create-permission',[PermissionController::class,'createPermission'])->name('create-permission');

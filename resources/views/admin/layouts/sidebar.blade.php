@@ -13,10 +13,14 @@
             </div>
             <div class="profile-name">
               <h5 class="mb-0 font-weight-normal">{{ Auth::user()->name }}</h5>
+              @if(Auth::user()->isSuperUser()) 
               <span>Gold Member</span>
+              @endif
             </div>
           </div>
-          <a href="#" id="profile-dropdown" data-bs-toggle="dropdown"><i class="mdi mdi-dots-vertical"></i></a>
+          <a href="#" id="profile-dropdown" data-bs-toggle="dropdown">
+            <i class="mdi mdi-dots-vertical"></i>
+          </a>
           <div class="dropdown-menu dropdown-menu-right sidebar-dropdown preview-list" aria-labelledby="profile-dropdown">
             <a href="#" class="dropdown-item preview-item">
               <div class="preview-thumbnail">
@@ -29,7 +33,7 @@
               </div>
             </a>
             <div class="dropdown-divider"></div>
-            <a href="#" class="dropdown-item preview-item">
+            <a href="{{ route('change-password') }}" class="dropdown-item preview-item">
               <div class="preview-thumbnail">
                 <div class="preview-icon bg-dark rounded-circle">
                   <i class="mdi mdi-onepassword  text-info"></i>
@@ -53,9 +57,7 @@
           </div>
         </div>
       </li>
-      <li class="nav-item nav-category">
-        <span class="nav-link">Navigation</span>
-      </li>
+    
       <li class="nav-item menu-items">
         <a class="nav-link" href="{{ route('admin-dashboard') }}">
           <span class="menu-icon">

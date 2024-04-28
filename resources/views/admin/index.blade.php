@@ -8,7 +8,7 @@
               <div class="d-flex align-items-center align-self-start"> 
                 
                 @if(isset($metrics['total_price']))
-                <h3 class="mb-0">${{ $metrics['total_price'] }}</h3>
+                <h3 style="color: rgb(232, 25, 25)" class="mb-0">${{ $metrics['total_price'] }}</h3>
                 @endif
             
             

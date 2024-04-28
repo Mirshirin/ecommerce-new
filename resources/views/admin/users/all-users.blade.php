@@ -57,8 +57,18 @@
             @endforeach
           </tbody>
         </table>
-      </div>
+       
+     
+    </div>
+    
+  </div>
+  <div class="note">
+    <div class="note-body">
+      {{ $users->links() }}
     </div>
   </div>
+  
 </div>
+
+
 @endcomponent

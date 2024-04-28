@@ -15,7 +15,7 @@ class ProductController extends Controller
 {
     use SharedFunctionalityTrait;
     public function allProduct(){
-        $products=Product::all();
+        $products=Product::paginate(7);
         return view('admin.products.all-products')->with('products',$products);
     }
     public function createProduct(){
