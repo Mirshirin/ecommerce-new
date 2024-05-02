@@ -11,10 +11,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/login', function () {
     return redirect('/admin/dashboard');
 });
-<<<<<<< HEAD
 
-=======
->>>>>>> c9d01357ac4e174344611ce183590d0ce02866eb
 Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('admin-dashboard');
 Route::get('/all-categories', [CategoryController::class, 'allCategories'])->name('all-categories');
 Route::get('/create-category', [CategoryController::class, 'createCategory'])->name('create-category');
@@ -32,11 +29,11 @@ Route::post('/store-user', [UserController::class, 'storeUser'])->name('store-us
 Route::get('/edit-user/{id}', [UserController::class, 'editUser'])->name('edit-user');
 Route::patch('/update-user/{id}', [UserController::class, 'updateUser'])->name('update-user');
 Route::delete('/delete-user/{id}',[UserController::class,'deleteUser'])->name('delete-user');
-<<<<<<< HEAD
 
-=======
+
+
 Route::get('/change-password', [UserController::class, 'changePassword'])->name('change-password');
->>>>>>> c9d01357ac4e174344611ce183590d0ce02866eb
+
 //permission management
 Route::get('/all-permission',[PermissionController::class,'allPermission'])->name('all-permission');
 Route::get('/create-permission',[PermissionController::class,'createPermission'])->name('create-permission');

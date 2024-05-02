@@ -1,35 +1,12 @@
+
 <?php
 
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProfileController;
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
-
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
-
-// Route::get('/', function () {
-//     if (Gate::allows('edit-user')){
-//         return view('welcome');
-//     }
-//         return 'no';
-// });
-
-
-
-
-
-
-
 
 
 Route::get('dashboard', function () {
@@ -47,7 +24,8 @@ Route::middleware('auth')->group(function () {
 });
 Route::get('/product-detail/{id}', [HomeController::class , 'productDetail'])->name('product-detail');
 Route::post('/add-cart/{id}', [HomeController::class , 'addToCart'])->name('add-cart');
-//Route::get('/all-products',[HomeController::class,'allProduct'])->name('all-products');
+Route::get('/',[ProductController::class,'homeProducts'])->name('products-index');
+
 Route::get('/show-carts',[HomeController::class,'showCarts'])->name('show-carts');
 Route::delete('/delete-carts/{id}',[HomeController::class,'deleteCarts'])->name('delete-carts');
 Route::get('/cash-order',[HomeController::class,'cashOrder'])->name('cash-order');
