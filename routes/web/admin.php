@@ -30,6 +30,7 @@ Route::get('/edit-user/{id}', [UserController::class, 'editUser'])->name('edit-u
 Route::patch('/update-user/{id}', [UserController::class, 'updateUser'])->name('update-user');
 Route::delete('/delete-user/{id}',[UserController::class,'deleteUser'])->name('delete-user');
 
+
 //permission management
 Route::get('/all-permission',[PermissionController::class,'allPermission'])->name('all-permission');
 Route::get('/create-permission',[PermissionController::class,'createPermission'])->name('create-permission');

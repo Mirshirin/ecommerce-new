@@ -33,7 +33,6 @@
               </div>
             </a>
             <div class="dropdown-divider"></div>
-
             <a href="{{ route('change-password') }}" class="dropdown-item preview-item">
 
               <div class="preview-thumbnail">

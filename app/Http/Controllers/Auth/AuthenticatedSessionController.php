@@ -32,14 +32,10 @@ class AuthenticatedSessionController extends Controller
         $request->session()->regenerate();
        
  // Check if the authenticated user is a superuser
-        if (($request->user()->isSuperUser() || $request->user()->isStaffUser())) {
-            
+        if (($request->user()->isSuperUser() || $request->user()->isStaffUser())) {            
         return redirect()->intended('../admin/dashboard');
         }
-        
-        return redirect()->intended(RouteServiceProvider::HOME);
-
-        
+            return redirect()->intended(RouteServiceProvider::HOME);      
 
     }
 

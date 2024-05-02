@@ -27,8 +27,58 @@
                    </div>
                 </div>
              </div>
+
           </div>          
         
+          </div>
+          <div class="carousel-item ">
+             <div class="container ">
+                <div class="row">
+                   <div class="col-md-7 col-lg-6 ">
+                      <div class="detail-box">
+                         <h1>
+                            <span>
+                            Sale 20% Off
+                            </span>
+                            <br>
+                            On Everything
+                         </h1>
+                         <p>
+                         </p>
+                         <div class="btn-box">
+                            <a href="" class="btn1">
+                            Shop Now
+                            </a>
+                         </div>
+                      </div>
+                   </div>
+                </div>
+             </div>
+          </div>
+          <div class="carousel-item">
+             <div class="container ">
+                <div class="row">
+                   <div class="col-md-7 col-lg-6 ">
+                      <div class="detail-box">
+                         <h1>
+                            <span>
+                            Sale 20% Off
+                            </span>
+                            <br>
+                            On Everything
+                         </h1>
+                         <p>
+                         </p>
+                         <div class="btn-box">
+                            <a href="" class="btn1">
+                            Shop Now
+                            </a>
+                         </div>
+                      </div>
+                   </div>
+                </div>
+             </div>
+          </div>
        </div>
        <div class="container">
           <ol class="carousel-indicators">
