@@ -4,8 +4,7 @@
 <div class="col-12 grid-margin stretch-card">
   <div class="card">
       <div class="card-body">
-        <h4 class="card-title">Create Category</h4>
-      
+        <h4 class="card-title">Create Category</h4>      
         <form id="frm" class="form-inline" method="POST" action="{{ route('store-category') }}">
             @csrf
           <label class="sr-only-visible" for="inlineFormInputName2">Name</label>

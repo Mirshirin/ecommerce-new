@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 
 use App\Models\User;
-
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
@@ -78,16 +78,31 @@ class UserController extends Controller
     }
     public function updatePassword(Request $request)
     {
-        $user=auth()->user()->id;
       
-      
-            if( ($request->new_password) == ($request->password_confirmation)  ){
-                
-               
-                $data['password'] = $request->new_password;
-            }       
-            $user ->update($data);  
-       return redirect()->route('admin.change-password');
+        $data=$request->validate([
+            'old_password' => 'required',
+            'new_password' => 'required|confirmed',
+
+        ]);       
+         /// Match the old passwword
+         if (!Hash::check($request->old_password,auth()->user()->password)){
+            $notification= array(
+                'message' => 'old password does not match!',
+                'alert-type' => 'error'
+            );
+            return back()->with($notification);
+         } 
+         //update new password  
+         User::whereId(auth()->user()->id)->update([
+            'password' => Hash::make($request->new_password),
+         ]) ; 
+         $notification= array(
+            'message' => 'password change successfully!',
+            'alert-type' => 'success'
+        );  
+       // return back()->with($notification);
+
+       return redirect('admin/dashboard');
       
     }
 

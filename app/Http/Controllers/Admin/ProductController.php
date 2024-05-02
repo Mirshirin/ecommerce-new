@@ -121,6 +121,22 @@ class ProductController extends Controller
     $products->setPath(url('/'));
        
         return view('home.index',compact('products'));
+    public function homeProducts(Request $request){
+      // Fetch all products
+    $products = Product::all();
+ 
+    // Assuming you want to paginate 10 products per page
+    $perPage = 6;
+    $currentPage = LengthAwarePaginator::resolveCurrentPage()?: 1;
+    $items = $products->slice(($currentPage - 1) * $perPage, $perPage)->all();
+
+    $products = new LengthAwarePaginator($items, count($products), $perPage);
+
+    // Set URL path for generated links
+    $products->setPath(url('/'));
+       
+        return view('home.index',compact('products'));
 }
 
 }
+
