@@ -5,10 +5,17 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Order;
+use App\Models\Product;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use App\Traits\SharedFunctionalityTrait;
+use Illuminate\Support\Facades\Request;
+use Illuminate\Pagination\LengthAwarePaginator;
+use Illuminate\Pagination\Paginator;
+
+
+
 class AdminController extends Controller
 {
     use SharedFunctionalityTrait;
@@ -60,4 +67,8 @@ class AdminController extends Controller
       
        
     }
+
+
+
+
 }

@@ -11,10 +11,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/login', function () {
     return redirect('/admin/dashboard');
 });
-<<<<<<< HEAD
 
-=======
->>>>>>> c9d01357ac4e174344611ce183590d0ce02866eb
 Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('admin-dashboard');
 Route::get('/all-categories', [CategoryController::class, 'allCategories'])->name('all-categories');
 Route::get('/create-category', [CategoryController::class, 'createCategory'])->name('create-category');
@@ -25,18 +22,14 @@ Route::delete('/delete-category/{id}',[CategoryController::class,'deleteCategory
 //user mangement
 Route::get('/all-users', [UserController::class, 'allUsers'])->name('all-users');
 Route::get('/change-password', [UserController::class, 'changePassword'])->name('change-password');
-Route::get('/update-password', [UserController::class, 'updatePassword'])->name('update-password');
+Route::patch('/update-password', [UserController::class, 'updatePassword'])->name('update-password');
 
 Route::get('/create-user', [UserController::class, 'createUser'])->name('create-user');
 Route::post('/store-user', [UserController::class, 'storeUser'])->name('store-user');
 Route::get('/edit-user/{id}', [UserController::class, 'editUser'])->name('edit-user');
 Route::patch('/update-user/{id}', [UserController::class, 'updateUser'])->name('update-user');
 Route::delete('/delete-user/{id}',[UserController::class,'deleteUser'])->name('delete-user');
-<<<<<<< HEAD
 
-=======
-Route::get('/change-password', [UserController::class, 'changePassword'])->name('change-password');
->>>>>>> c9d01357ac4e174344611ce183590d0ce02866eb
 //permission management
 Route::get('/all-permission',[PermissionController::class,'allPermission'])->name('all-permission');
 Route::get('/create-permission',[PermissionController::class,'createPermission'])->name('create-permission');
@@ -63,6 +56,8 @@ Route::post('/store-product',[ProductController::class,'storeProduct'])->name('s
 Route::put('/update-product/{id}',[ProductController::class,'updateProduct'])->name('update-product');
 Route::delete('/delete-product/{id}',[ProductController::class,'deleteProduct'])->name('delete-product');
 Route::get('/search',[SearchController::class,'search'])->name('search');
+
+
 
 //all-orders
 Route::get('/all-orders',[AdminController::class,'allOrders'])->name('all-orders');

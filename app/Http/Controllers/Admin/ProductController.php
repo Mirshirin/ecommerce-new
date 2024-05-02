@@ -11,6 +11,7 @@ use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use App\Traits\SharedFunctionalityTrait;
+use Illuminate\Pagination\LengthAwarePaginator;
 class ProductController extends Controller
 {
     use SharedFunctionalityTrait;
@@ -105,5 +106,22 @@ class ProductController extends Controller
        
         return response()->json(['status'=> 'Data deleted successfully.']);
     }
+    public function homeProducts(Request $request){
+      // Fetch all products
+    $products = Product::all();
+ 
+    // Assuming you want to paginate 10 products per page
+    $perPage = 6;
+    $currentPage = LengthAwarePaginator::resolveCurrentPage()?: 1;
+    $items = $products->slice(($currentPage - 1) * $perPage, $perPage)->all();
+
+    $products = new LengthAwarePaginator($items, count($products), $perPage);
+
+    // Set URL path for generated links
+    $products->setPath(url('/'));
+       
+        return view('home.index',compact('products'));
+}
+
 }
 

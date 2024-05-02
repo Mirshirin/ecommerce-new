@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Cart;
 use App\Models\Order;
 use App\Models\Product;
-use Illuminate\Http\File;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Session;
@@ -95,6 +95,7 @@ class HomeController extends Controller
         }
         return to_route('show-carts' )->with('message','we have recieved your order ');
     }
+
     public function stripe($totalPrice){
         return view('home.cart.stripe',compact('totalPrice'));
     }
@@ -135,4 +136,10 @@ class HomeController extends Controller
               
         return back();
     }
+    
+    
+    
+
+
+    
 }  

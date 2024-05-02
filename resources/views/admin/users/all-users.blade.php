@@ -7,7 +7,7 @@
           <h4 class="card-title">Users List</h4>
             <div>
               @can('create-user')
-              <a class="nav-link btn btn-sm btn-success  " href="{{ route('create-user') }}">+ Create  User</a>
+              <a class="nav-link btn btn-sm btn-success" href="{{ route('create-user') }}" >+ Create  User</a>
               @endcan
             </div>
         </div>

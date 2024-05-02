@@ -35,12 +35,9 @@ class AuthenticatedSessionController extends Controller
         if (($request->user()->isSuperUser() || $request->user()->isStaffUser())) {
             
         return redirect()->intended('../admin/dashboard');
-<<<<<<< HEAD
         }
-=======
-        }else{
->>>>>>> c9d01357ac4e174344611ce183590d0ce02866eb
-            return redirect()->intended(RouteServiceProvider::HOME);
+        
+        return redirect()->intended(RouteServiceProvider::HOME);
 
         
 

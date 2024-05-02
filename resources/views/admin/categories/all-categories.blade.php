@@ -1,4 +1,50 @@
 @component('admin.layouts.content')
+@section('scripts')
+
+<script>
+    $(document).ready(function(){
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+        $('.deletebtn').click(function (e) { 
+            e.preventDefault();
+            var delete_id = $(this).closest("tr").find('.delete_val_id').val();
+
+            swal({
+                title: "Are you sure?",
+                text: "Once deleted, you will not be able to recover this imaginary file!",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+            })
+            .then((willDelete) => {
+                if (willDelete) {
+                    var data = {
+                        "_token": $('input[name=_token]').val(),
+                        "id": delete_id
+                    }
+
+                    $.ajax({
+                        type: "DELETE",
+                        url: '/admin/delete-category/' + delete_id,
+                        data: data,
+                        success: function (response) {
+                            swal(response.status, {
+                                icon: "success",
+                            }).then((result) => {
+                                location.reload();
+                            });
+                        }       
+                    });
+                }
+            });
+        });
+    });
+</script>
+@endsection
+
 <div class="col-lg-12 grid-margin stretch-card">
   <div class="card">
 

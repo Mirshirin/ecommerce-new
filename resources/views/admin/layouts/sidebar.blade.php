@@ -33,11 +33,9 @@
               </div>
             </a>
             <div class="dropdown-divider"></div>
-<<<<<<< HEAD
+
             <a href="{{ route('change-password') }}" class="dropdown-item preview-item">
-=======
-            <a href="" class="dropdown-item preview-item">
->>>>>>> c9d01357ac4e174344611ce183590d0ce02866eb
+
               <div class="preview-thumbnail">
                 <div class="preview-icon bg-dark rounded-circle">
                   <i class="mdi mdi-onepassword  text-info"></i>

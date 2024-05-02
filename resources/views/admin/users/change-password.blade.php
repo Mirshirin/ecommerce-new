@@ -1,58 +1,60 @@
-<<<<<<< HEAD
 
 @component('admin.layouts.content')
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+<script>
+@if(Session::has('message'))
+    var type = "{{ Session::get('alert-type','info') }}"
+    switch(type){
+        case 'info':
+        toastr.info("{{ Session::get('message') }}");
+        break;
+        case 'success':
+        toastr.success("{{ Session::get('message') }}");
+        break;  
+        case 'warning':
+        toastr.warning("{{ Session::get('message') }}");
+        break; 
+        case 'error':
+        toastr.error("{{ Session::get('message') }}");
+        break;      
+    }
+@endif
+</script>
     <div class="card-body">
         <h4 class="card-title">Edit User</h4>
 
-        <form id="frm" class="form-inline" method="POST" action="{{ route('update-password') }}">
+        <form id="frm--" class="form-inline" method="POST" action="{{ route('update-password') }}" enctype="multipart/form-data">
             @csrf
-            
-            <label class="sr-only-visible" for="name">old password</label>
-            <input type="password" class="form-control mb-2 mr-sm-2"  id="old_password" name="old_password"  value="{{ old('password', $user->password) }}" style= "background-color:white !important; color: black;" >
-           
-            <label class="sr-only-visible" for="password">New Password</label>
-            <input type="password" class="form-control mb-2 mr-sm-2" id="new_password" name="new_password" placeholder="Enter new Password "  style= "background-color:white !important; color: black;" >
-            <label class="sr-only-visible" for="password_confirmation">Password Confirmation</label>
-            <input type="password" class="form-control mb-2 mr-sm-2" id="password_confirmation" name="password_confirmation"  placeholder="Enter Password confirmation" style= "background-color:white !important; color: black;" >
-            
-           
-            
+            @method('patch')
+            <label class="form-label" for="name">old password</label>
+            <input type="password" class="form-control @error('old_password') is-invalid @enderror mb-2 mr-sm-2"  
+            id="old_password" name="old_password" 
+            placeholder="Enter old Password "               
+            style= "background-color:white !important; color: black;" autocomplete="off" > 
+            @error('old_password')
+                <span class="text-danger">{{ $message }}</span>
+            @enderror  
+            <br>          
+            <label class="sr-only-visible" for="name">New Password</label>
+            <input type="password" class="form-control @error('new_password') is-invalid @enderror mb-2 mr-sm-2"  
+            id="new_password" name="new_password"  
+            placeholder="Enter new Password "         
+            style= "background-color:white !important; color: black;" autocomplete="off" > 
+            @error('new_password')
+                <span class="text-danger">{{ $message }}</span>
+            @enderror 
+            <br>         
+            <label class="form-label" for="name">Password Confirmation</label>
+            <input type="password" class="form-control"  
+            id="new_password_confirmation" name="new_password_confirmation"  
+            placeholder="Enter Password confirmation"        
+            style= "background-color:white !important; color: black;" autocomplete="off" > 
+                 
+            <br> 
+          
             <button type="submit" class="btn btn-primary mb-2">Update Password</button>
             
         </form>
     </div>
 
 @endcomponent
-=======
-@component('admin.layouts.content')
-
-    <div class="card-body">
-        <h4 class="card-title">Edit User</h4>
-
-        <form id="frm" class="form-inline" method="POST" action="{{ route('update-user',$user->id) }}">
-            @csrf
-            @method('patch')
-            <label class="sr-only" for="name">Name</label>
-            <input type="text" class="form-control mb-2 mr-sm-2"  id="name" name="name"  value="{{ old('name', $user->name) }}" style= "background-color:white !important; color: black;" >
-            <label class="sr-only" for="email">Email address</label>
-            <input type="email" class="form-control mb-2 mr-sm-2"  id="email" name="email"   value="{{ old('email', $user->email) }}" style= "background-color:white !important; color: black;" >
-            <label class="sr-only" for="password">Password</label>
-            <input type="password" class="form-control mb-2 mr-sm-2" id="password" name="password" placeholder="Enter Password "  style= "background-color:white !important; color: black;" >
-            <label class="sr-only" for="password_confirmation">Password Confirmation</label>
-            <input type="password" class="form-control mb-2 mr-sm-2" id="password_confirmation" name="password_confirmation"  placeholder="Enter Password confirmation" style= "background-color:white !important; color: black;" >
-            <label class="sr-only" for="phone">Phone No.</label>
-            <input type="text" class="form-control mb-2 mr-sm-2"   id="phone" name="phone"   value="{{ old('phone', $user->phone) }}" style= "background-color:white !important; color: black;" >
-            <label class="sr-only" for="address">address</label>
-            <input type="text" class="form-control mb-2 mr-sm-2"  id="address" name="address"  placeholder="Enter address"   value="{{ old('address', $user->address) }}" style= "background-color:white !important; color: black;" >
-            @if (! $user->hasVerifiedEmail())
-                <label class="sr-only" for="verify">User Verification</label>
-                <input type="checkbox" class="form-check-input"  id="verify" name="verify" >
-               
-            @endif
-            <br>
-            <button type="submit" class="btn btn-primary mb-2">Submit</button>
-            
-        </form>
-    </div>
-@endcomponent
->>>>>>> c9d01357ac4e174344611ce183590d0ce02866eb
