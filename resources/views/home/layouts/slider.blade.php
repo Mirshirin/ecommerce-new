@@ -27,6 +27,9 @@
                    </div>
                 </div>
              </div>
+
+          </div>          
+        
           </div>
           <div class="carousel-item ">
              <div class="container ">

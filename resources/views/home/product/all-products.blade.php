@@ -1,4 +1,5 @@
 @extends('home.master')
+
 @section('content')
 <section class="product_section layout_padding">
     <div class="container">
