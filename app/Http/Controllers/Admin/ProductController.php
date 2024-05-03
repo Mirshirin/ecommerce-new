@@ -121,7 +121,6 @@ class ProductController extends Controller
     $products->setPath(url('/'));
        
         return view('home.index',compact('products'));
-  
-    }
 }
 
+}
