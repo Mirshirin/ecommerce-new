@@ -7,7 +7,7 @@
 </style>
 <nav class="navbar p-0 fixed-top d-flex flex-row">
     <div class="navbar-brand-wrapper d-flex d-lg-none align-items-center justify-content-center">
-      <a class="navbar-brand brand-logo-mini" href="#"><img src="images/logo.png" alt="logo" /></a>
+      <a class="navbar-brand brand-logo-mini" href="#"><img src="/images/logo.png" alt="logo" /></a>
     </div>
     <div class="navbar-menu-wrapper flex-grow d-flex align-items-stretch">
       <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
@@ -16,7 +16,7 @@
       <ul class="navbar-nav">
         <li class="nav-item ">
           <form  class="search-form"  action="{{ route('search') }}" method="GET">
-            <input type="text" name="query" placeholder="Search products Name...">
+            <input type="text" name="query" placeholder="Search Products Title...">
             <button style="color: white"  type="submit">Search</button>
         </form>
         </li>
@@ -68,8 +68,9 @@
                         onclick="event.preventDefault();
                                     this.closest('form').submit();">
                                     <div class="preview-thumbnail" >
-                                      <div class="preview-icon bg-dark rounded-circle" >
-                                        <i  class="mdi mdi-logout text-success">   {{ __('Log Out') }}</i>
+                                      <div class="preview-icon bg-dark ">
+                                        
+                                        <i class="mdi mdi-logout text-success">{{ __('Log Out') }}</i>
                                       
                                       </div>
                                     </div>

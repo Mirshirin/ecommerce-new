@@ -15827,24 +15827,36 @@ input:focus {
   font-family: 'Rubik';
   font-weight: 300;
   src: url("../fonts/Rubik/Rubik-Light.ttf");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
   /* IE9 Compat Modes */ }
 
 @font-face {
   font-family: 'Rubik';
   font-weight: 400;
   src: url("../fonts/Rubik/Rubik-Regular.ttf");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
   /* IE9 Compat Modes */ }
 
 @font-face {
   font-family: 'Rubik';
   font-weight: 500;
   src: url("../fonts/Rubik/Rubik-Medium.ttf");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
   /* IE9 Compat Modes */ }
 
 @font-face {
   font-family: 'Rubik';
   font-weight: 700;
   src: url("../fonts/Rubik/Rubik-Bold.ttf");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
   /* IE9 Compat Modes */ }
 
 /* Backgrounds  */

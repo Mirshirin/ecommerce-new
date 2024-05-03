@@ -12,6 +12,8 @@
       <meta name="author" content="" />
       <link rel="shortcut icon" href="{{ asset('admin/assets/images/favicon.png') }}" type="">
       <title>Commerce</title>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
       <!-- bootstrap core css -->
       <link rel="stylesheet" type="text/css" href="{{ asset('home/css/bootstrap.css') }}" />
       <!-- font awesome style -->
@@ -51,6 +53,10 @@
       <!-- bootstrap js -->
       <script src="{{ asset('home/js/bootstrap.js') }}"></script>
       <!-- custom js -->
+
+
+
       <script src="{{ asset('home/js/custom.js') }}"></script>
+      
    </body>
 </html>

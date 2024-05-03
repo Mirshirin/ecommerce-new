@@ -106,18 +106,31 @@
         }
       }
     })
+    document.addEventListener('DOMContentLoaded', (event) => {
+      // Your code here
+      const element = document.getElementById('d-flex'); // Replace 'your-element-id' with the actual ID of your element
+      if (element!== null) {
+          element.classList.add('d-flex'); // Replace 'your-class-name' with the actual class name you want to add
+      } else {
+          console.error('Element is null');
+      }
+  });
+  
+
+
     if ($.cookie('corona-free-banner')!="true") {
-      document.querySelector('#proBanner').classList.add('d-flex');
+      //document.querySelector('#proBanner').classList.add('d-flex');
     }
     else {
-      document.querySelector('#proBanner').classList.add('d-none');
+     // document.querySelector('#proBanner').classList.add('d-none');
+     
     }
-    document.querySelector('#bannerClose').addEventListener('click',function() {
-      document.querySelector('#proBanner').classList.add('d-none');
-      document.querySelector('#proBanner').classList.remove('d-flex');
-      var date = new Date();
-      date.setTime(date.getTime() + 24 * 60 * 60 * 1000); 
-      $.cookie('corona-free-banner', "true", { expires: date });
-    });
+    // document.querySelector('#bannerClose').addEventListener('click',function() {
+    //  document.querySelector('#proBanner').classList.add('d-none');
+    //   document.querySelector('#proBanner').classList.remove('d-flex');
+    //   var date = new Date();
+    //   date.setTime(date.getTime() + 24 * 60 * 60 * 1000); 
+    //   $.cookie('corona-free-banner', "true", { expires: date });
+    // });
   });
 })(jQuery);
