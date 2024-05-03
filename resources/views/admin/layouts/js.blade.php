@@ -1,56 +1,65 @@
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script>
+  $(document).ready(function(){
+    // Set up the CSRF token for all AJAX requests
+    $.ajaxSetup({
+      headers: {
+        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+      }
+    });
 
-    <script>
-      $(document).ready(function(){
-              $.ajaxSetup({
-              headers: {
-                  'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-              }
+    // Function to handle deletion
+    function deleteItem(delete_id, itemType) {
+      swal({
+        title: "Are you sure?",
+        text: "Once deleted, you will not be able to recover this imaginary file!",
+        icon: "warning",
+        buttons: true,
+        dangerMode: true,
+      })
+     .then((willDelete) => {
+        if (willDelete) {
+          var data = {
+            "_token": $('input[name=_token]').val(),
+            "id": delete_id
+          };
+
+          $.ajax({
+            type: "DELETE",
+            url: '/admin/delete-' + itemType + '/' + delete_id,
+            data: data,
+            success: function(response) {
+              swal(response.status, {
+                icon: "success",
+              })
+             .then((result) => {
+                location.reload();
               });
-        $('.deletebtn').click(function (e) 
-        { 
-          e.preventDefault();
-          var delete_id = $(this).closest("tr").find('.delete_val_id').val();
-        
-            swal({
-                  title: "Are you sure?",
-                  text: "Once deleted, you will not be able to recover this imaginary file!",
-                  icon: "warning",
-                  buttons: true,
-                  dangerMode: true,
-            })
-            .then((willDelete) => 
-            {
-              var data = {
-                "_token":$('input[name=_token]').val(),
-                "id":delete_id
-              }
-
-
-            $.ajax({
-                type:"DELETE",
-                url:'/admin/delete-user/' + delete_id,
-                data:data,
-                success:function(response)
-                {
-                  swal(response.status , {
-                  icon: "success",
-                })
-              
-                .then((result)=>{
-                  location.reload();
-                })
-              }       
-              });
-            });
-
-
-
-        });
-
+            }
+          });
+        }
       });
+    }
 
-    </script>
+    // Attach click event to delete buttons
+    $('.deletebtn').click(function(e) {
+      e.preventDefault();
+      var delete_id = $(this).closest("tr").find('.delete_val_id').val();
+      //var itemType = $(this).closest("tr").find('.item_type').attr('class').split(' ')[1]; 
+      var itemType =  $(this).closest("tr").attr('class').split(' ')[1];
+  console.log(itemType);
+      deleteItem(delete_id, itemType);
+    });
+  });
+</script>
+
+
+
+
+
+
+
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.20.0/jquery.validate.min.js" ></script>
     <script>
       $('#frm').validate({
@@ -67,7 +76,8 @@
         }
       });
     </script>
-     <script>
+
+    <script>
       $('#frmproduct').validate({
         rules:{
           title:"required",
@@ -80,154 +90,9 @@
         }
       });
     </script>
-    <script>
-      $(document).ready(function(){
-              $.ajaxSetup({
-              headers: {
-                  'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-              }
-              });
-        $('.deletebtn').click(function (e) 
-        { 
-          e.preventDefault();
-          var delete_id = $(this).closest("tr").find('.delete_val_id').val();
-        
-            swal({
-                  title: "Are you sure?",
-                  text: "Once deleted, you will not be able to recover this imaginary file!",
-                  icon: "warning",
-                  buttons: true,
-                  dangerMode: true,
-            })
-            .then((willDelete) => 
-            {
-              var data = {
-                "_token":$('input[name=_token]').val(),
-                "id":delete_id
-              }
-
-
-            $.ajax({
-                type:"DELETE",
-                url:'/admin/delete-permission/' + delete_id,
-                data:data,
-                success:function(response)
-                {
-                  swal(response.status , {
-                  icon: "success",
-                })
-              
-                .then((result)=>{
-                  location.reload();
-                })
-              }       
-              });
-            });
-
-
-
-        });
-
-      });
-
-    </script>
-    <script>
-      $(document).ready(function(){
-              $.ajaxSetup({
-              headers: {
-                  'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-              }
-              });
-        $('.deletebtn').click(function (e) 
-        { 
-          e.preventDefault();
-          var delete_id = $(this).closest("tr").find('.delete_val_id').val();
-        
-            swal({
-                  title: "Are you sure?",
-                  text: "Once deleted, you will not be able to recover this imaginary file!",
-                  icon: "warning",
-                  buttons: true,
-                  dangerMode: true,
-            })
-            .then((willDelete) => 
-            {
-              var data = {
-                "_token":$('input[name=_token]').val(),
-                "id":delete_id
-              }
-
-
-            $.ajax({
-                type:"DELETE",
-                url:'/admin/delete-role/' + delete_id,
-                data:data,
-                success:function(response)
-                {
-                  swal(response.status , {
-                  icon: "success",
-                })
-              
-                .then((result)=>{
-                  location.reload();
-                })
-              }       
-              });
-            });
-
-
-
-        });
-
-      });
-
-    </script>
-    <script>
-      $(document).ready(function(){
-              $.ajaxSetup({
-              headers: {
-                  'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-              }
-              });
-        $('.deletebtn').click(function (e) 
-        { 
-          e.preventDefault();
-          var delete_id = $(this).closest("tr").find('.delete_val_id').val();
-        
-            swal({
-                  title: "Are you sure?",
-                  text: "Once deleted, you will not be able to recover this imaginary file!",
-                  icon: "warning",
-                  buttons: true,
-                  dangerMode: true,
-            })
-            .then((willDelete) => 
-            {
-              var data = {
-                "_token":$('input[name=_token]').val(),
-                "id":delete_id
-              }
-            $.ajax({
-                type:"DELETE",
-                url:'/admin/delete-product/' + delete_id,
-                data:data,
-                success:function(response)
-                {
-                  swal(response.status , {
-                  icon: "success",
-                })
-              
-                .then((result)=>{
-                  location.reload();
-                })
-              }       
-              });
-            });
-        });
-
-      });
-
-    </script>
+    
+    
+    
  
     <script src="{{ asset('admin/assets/vendors/js/vendor.bundle.base.js') }}"></script>
     <!-- endinject -->

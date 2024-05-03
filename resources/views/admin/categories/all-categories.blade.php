@@ -68,7 +68,7 @@
           </thead>
           <tbody>
           @foreach ( $categories as $category)
-            <tr>
+            <tr class="item_type category">
                 <input type="hidden" class="delete_val_id" value="{{ $category->id }}">
                 <td> {{  $category->id }} </td>
                 <td> {{ $category->name }}</td>

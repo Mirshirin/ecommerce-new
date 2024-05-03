@@ -26,7 +26,7 @@
       <input type="text" class="form-control mb-2 mr-sm-2" name="name"  placeholder="Enter role name" style= "background-color:white !important; color: black;" >
       <label class="sr-only-visible" for="inlineFormInputName2">Role Label</label>
       <input type="text" class="form-control mb-2 mr-sm-2" name="label"  placeholder="Enter role label" style= "background-color:white !important; color: black;" >      <br>
-      <label class="sr-only-visible" for="inlineFormInputName2">Role Label</label>
+      <label class="sr-only-visible" for="inlineFormInputName2">Role and permissions</label>
         <select name="permissions[]" id="permissions" class="form-control"  style= "background-color:white !important; color: black;" multiple >
             @foreach ($permissions as $permission) 
             <option value="{{ $permission->id }} "> {{ $permission->name }} - {{ $permission->label }} </option>      

@@ -12,8 +12,6 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use App\Traits\SharedFunctionalityTrait;
 use Illuminate\Pagination\LengthAwarePaginator;
-use Illuminate\Support\Facades\Log;
-
 class ProductController extends Controller
 {
     use SharedFunctionalityTrait;
@@ -59,63 +57,47 @@ class ProductController extends Controller
         ->with('product',$product)
         ->with('categories',$categories);
     }
-    public function updateProduct(Request $request, $id){
-        $categories = Category::all();
+    public function updateProduct(Request $request,$id){
+        dd($request->image) ; 
+        $categories=Category::all();
         $request->validate([
-            'title' => ['required', 'string', 'max:255'],
-            'description' => ['required', 'string', 'max:255'],
-            'discount_price' => ['nullable'],
-            'quantity' => ['required'],
-            'price' => ['required', 'max:999999999'],
-            'category_id' => ['required'],
+            'title' => ['required','string','max:255'],
+            'description' => ['required','string','max:255'],
+            'discount_price'=> ['nullable'],
+            'quantity'=> ['required'],
+            'price'=> ['required','max:999999999'],
+            'category_id'=> ['required'],
+
         ]);
-    
-        if (!is_null($request->image)) {
+        if (! is_null($request->image)){
             $request->validate([
-                'image' => 'required|image|mimes:png,jpg,jpeg|max:2048',
+                'image' =>'required|image|mimes:png,jpg,jpeg|max:2048',
+
             ]);
-    
-            // Find the product to update
-            $product = Product::find($id);
-            // Check if the product has an existing image
-
-            $oldImage = $product->image;
-         
-            if ($oldImage) {
-                // Delete the old image
-                if (File::exists(public_path('productImage/'. $oldImage))) {
-                    File::delete(public_path('productImage/'. $oldImage));
-                }
-            }
-    
-            // Process the new image upload
-            $newImageName = time(). '.'. $request->image->getClientOriginalExtension();
-            $request->image->move('productImage', $newImageName);
-            $product->image = $newImageName;
-            
-        // Log the new image name for debugging
-        Log::info('New image name: '.$newImageName);
-
-        $product->save();
         }
-          
-        // Update the product details
-        $product = Product::find($id);
-        $product->title = $request->title;
-        $product->description = $request->description;
-        $product->discount_price = $request->discount_price;
-        $product->quantity = $request->quantity;
-        $product->price = $request->price;
-        $product->category_id = $request->category_id;
-    
-        $product->save();
-    
+
+      
+        $products=Product::find($id);
+        $products->title = $request->title;
+        $products->description = $request->description;
+        $products->discount_price = $request->discount_price;
+        $products->quantity = $request->quantity;
+        $products->price = $request->price;
+        $products->category_id = $request->category_id;
+        $image=$request->image;  
+        
+        if ($request->hasFile($image )) {      
+            $imagename = time() . '.' .$image->getClientOriginalExtension();
+            $request->image->move('productImage', $imagename);
+            $products->image = $imagename;
+        }else{
+
+        }
+        $products->save();  
         return redirect(route('all-products'))
-            ->with('categories', $categories)
-            ->with('message', 'Data updated.');
+        ->with('categories',$categories)
+        ->with('message','Data updated.');
     }
-    
-    
     
     public function deleteProduct($id){
         $product=Product::find($id);

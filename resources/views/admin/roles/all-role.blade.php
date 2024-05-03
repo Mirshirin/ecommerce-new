@@ -23,7 +23,7 @@
           </thead>
           <tbody>
           @foreach ( $roles as $role)
-            <tr>
+            <tr class="item_type role">
                 <input type="hidden" class="delete_val_id" value="{{ $role->id }}">
                 <td> {{  $role->id }} </td>
                 <td> {{ $role->name }}</td>

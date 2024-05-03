@@ -46,10 +46,10 @@
           </thead>
           <tbody>
           @foreach ( $products as $product)
-            <tr>
+            <tr class="item_type product">
                 <input type="hidden" class="delete_val_id" value="{{ $product->id }}">
                 <td> {{  $product->id }} </td>              
-                <td>  <img src="/productImage/{{ $product->image }}" alt="{{ $product->title }}"> </td>
+                <td>  <img src="{{ asset('productImage/'. $product->image) }}" alt="{{ $product->title }}"> </td>
                 <td> {{ $product->title }}</td>
                 <td> {{ $product->description }}</td>
                 <td> {{ $product->price }}</td>

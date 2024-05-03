@@ -23,7 +23,7 @@
           </thead>
           <tbody>
           @foreach ( $permissions as $permission)
-            <tr>
+            <tr class="item_type permission">
                 <input type="hidden" class="delete_val_id" value="{{ $permission->id }}">
                 <td> {{  $permission->id }} </td>
                 <td> {{ $permission->name }}</td>
