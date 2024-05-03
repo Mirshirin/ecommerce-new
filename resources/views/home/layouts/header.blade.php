@@ -1,6 +1,6 @@
 
 <header class="header_section">
-    <div class="container">کن
+    <div class="container">
        <nav class="navbar navbar-expand-lg custom_nav-container ">
           <a class="navbar-brand" href="index.html"><img width="250" src="images/logo.png" alt="#" /></a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -123,8 +123,7 @@
                     <div class="flex">
                            <li class="nav-item">
                               <a class="btn btn-info" href="{{ route('login') }}">Login</a>
-                           </li>
-                     
+                           </li>                     
                            @if (Route::has('register'))                        
                               <li class="nav-item">
                                  <a class="btn btn-success ml-1" href="{{ route('register') }}">Register</a>
