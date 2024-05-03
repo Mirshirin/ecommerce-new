@@ -27,12 +27,9 @@
                    </div>
                 </div>
              </div>
-<<<<<<< HEAD
-=======
 
           </div>          
         
->>>>>>> origin/main
           </div>
           <div class="carousel-item ">
              <div class="container ">

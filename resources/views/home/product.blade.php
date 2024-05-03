@@ -77,9 +77,5 @@
 
 
    </div>
-<<<<<<< HEAD
-</section>
-=======
 
 </section>
->>>>>>> origin/main
