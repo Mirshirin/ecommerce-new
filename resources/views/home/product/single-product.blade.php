@@ -15,13 +15,13 @@
 
 <section class="arrival_section">
    <div class="container"  style="float: right; margin-right: 1px;">
-      <img src="/productImage/{{ $product->image }}" class="image-with-text"  alt="{{ $product->title }}">
+      <img src="/productImage/{{ $product->image }}"   alt="{{ $product->title }}">
    </div>
    <div style="margin-left:40px; ">
    <div class="heading_container remove_line_bt">
-      <h2>
+      <h5>
          {{ $product->title }}
-      </h2>
+      </h5>
    </div>
 
    <p style="margin-top: 20px;margin-bottom: 10px;">

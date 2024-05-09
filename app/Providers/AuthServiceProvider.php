@@ -26,11 +26,13 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
          Gate::before(function($user){
+           
             if($user->isSuperUser()) return true;
          });
    
         foreach(Permission::all() as $permisson){
-            Gate::define( $permisson->name,function($user) use ($permisson) {               
+           
+            Gate::define( $permisson->name,function($user) use ($permisson) { 
                 return $user->hasPermisssion($permisson);
             });
         }
