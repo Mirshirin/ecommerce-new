@@ -15897,6 +15897,7 @@ input:focus {
 
 /* Typography */
 body {
+  margin: 0;
   font-size: 1rem;
   font-weight: normal;
   font-weight: initial;

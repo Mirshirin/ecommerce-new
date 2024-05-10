@@ -27,12 +27,12 @@
    </head>
    <body>   
       <!-- header section strats -->
-      @include('home.layouts.header');
+      @include('home.layouts.header')
       <!-- end header section -->
       <!-- slider section -->
       @yield('content')
       <!-- footer start -->
-      @include('home.layouts.footer');
+      @include('home.layouts.footer')
       <!-- footer end -->
       <!-- jQery -->
          <!--    sweetalert code -->

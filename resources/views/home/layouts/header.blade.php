@@ -1,21 +1,19 @@
 
+
 <header class="header_section">
     <div class="container">
        <nav class="navbar navbar-expand-lg custom_nav-container ">
-          <a class="navbar-brand" href="index.html"><img width="250" src="{{ asset('/images/logo.png') }}" alt="#" /></a>
+          <a class="navbar-brand" href=""><img width="250" src="{{ asset('/images/logo.png') }}" alt="#" /></a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class=""> </span>
           </button>
           <div class=" navbar-collapse" id="navbarSupportedContent">
-             <ul class="navbar-nav">
-                
+             <ul class="navbar-nav">                           
                <li class="nav-item dropdown">
-                   <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true"> <span class="nav-label">Pages <span class="caret"></span></a>
-                   <ul class="dropdown-menu">
-                      <li><a href="#about-the-page">About</a></li>
-                      <li><a href="#testimonial">Testimonial</a></li>
-                   </ul>
-                </li>
+                  <a class="nav-link" href="#about-the-page" >
+                     About 
+                  </a> 
+               </li>
                 <li class="nav-item">
                    <a class="nav-link" href="{{ route('all-products') }}">Products</a>
                 </li>
@@ -58,11 +56,9 @@
                         
                                                 <!-- Authentication -->
                                                 <form method="POST" action="{{ route('logout') }}">
-                                                      @csrf
-                        
+                                                      @csrf                        
                                                       <x-dropdown-link :href="route('logout')"
-                                                            onclick="event.preventDefault();
-                                                                        this.closest('form').submit();">
+                                                            onclick="event.preventDefault();this.closest('form').submit();">
                                                          {{ __('Log Out') }}
                                                       </x-dropdown-link>
                                                 </form>
@@ -84,11 +80,7 @@
                         
                               <!-- Responsive Navigation Menu -->
                               <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
-                                 <div class="pt-2 pb-3 space-y-1">
-                                    <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                                          {{ __('Dashboard') }}
-                                    </x-responsive-nav-link>
-                                 </div>
+                                 
                         
                                  <!-- Responsive Settings Options -->
                                  <div class="pt-4 pb-1 border-t border-gray-200">
